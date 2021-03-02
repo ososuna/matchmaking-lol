@@ -14,7 +14,7 @@ q1 = Queue('Silver')
 
 t1 = Team(1)
 
-users = ['Edgar', 'Pablo', 'Gerardo', 'Diego', 'Mariana', 'Carolina', 'Catherine', 'Gabo', 'Ivan', 'Luisa', 'Nahibi']
+users = ['Edgar', 'Pablo', 'Gerardo', 'Diego', 'Mariana', 'Carolina', 'Catherine', 'Gabo', 'Ivan', 'Luisa', 'Nahibi', 'Isabella', 'Brenda']
 lanes = ['top', 'jg', 'mid', 'adc', 'sup']
 mmr = 1350 + 320 * np.random.randn(100000)
 wr = 50 + 8 * np.random.randn(100000)
