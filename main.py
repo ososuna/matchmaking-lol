@@ -18,14 +18,19 @@ users = ['Edgar', 'Pablo', 'Gerardo', 'Diego', 'Mariana', 'Carolina', 'Catherine
 lanes = ['top', 'jg', 'mid', 'adc', 'sup']
 mmr = 1350 + 320 * np.random.randn(100000)
 wr = 50 + 8 * np.random.randn(100000)
-plt.hist(mmr)
+
+k = int(np.ceil(1+np.log2(100000)))
+plt.hist(mmr, bins=k)
+plt.xlabel('MMR')
+plt.ylabel('Players number')
+plt.title('Rank distribution of players online')
 
 def generate_rand_player():
 
     rand_mmr = round(np.random.choice(mmr), 2)
     rand_wr = round(np.random.choice(wr), 2)
     rand_rank = random.randint(1,4)
-    rand_user = f'{np.random.choice(users)}{random.randint(0,9)}{random.randint(0,9)}'
+    rand_user = '{}{}{}'.format(np.random.choice(users), random.randint(0,9), random.randint(0,9))
     rand_level = random.randint(30, 550)
     rand_p_lane = np.random.choice(lanes)
 
@@ -66,6 +71,8 @@ q1.form_team(t1)
 q1.form_team(t2)
 
 m1 = Match(1, t1, t2)
+m1.print_match_stats()
 print(m1)
+
 
 # %%

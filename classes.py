@@ -129,7 +129,7 @@ class Player:
         return self.mmr
     
     def __str__(self):
-        return f'\n{self.user}\n{self.division} {self.rank}\nLevel {self.level}\nWin Rate: {self.winrate}%\nPrimary lane: {self.primary_lane}\nSecondary lane: {self.secondary_lane}'
+        return '\n{}\n{} {}\nLevel {}\nWin Rate: {}%\nPrimary lane: {}\nSecondary lane: {}'.format(self.user, self.division, self.rank, self.level, self.winrate, self.primary_lane, self.secondary_lane)
 
 class Team:
 
@@ -201,7 +201,7 @@ class Team:
             return self.avg_mmr
     
     def __str__(self):
-        return f'\ntop: {self.top.user}\njg: {self.jg.user}\nmid: {self.mid.user}\nadc: {self.adc.user}\nsup: {self.sup.user}'
+        return '\ntop: {}\njg: {}\nmid: {}\nadc: {}\nsup: {}'.format(self.top.user, self.jg.user, self.mid.user, self.adc.user, self.sup.user)
 
 class Match:
     
@@ -230,8 +230,11 @@ class Match:
     def blue_team(self, blue_team):
         self.__blue_team = blue_team
     
+    def print_match_stats(self):
+        print('Red Team\n{}\n{}\n{}\n{}\n{}\nBlue Team\n{}\n{}\n{}\n{}\n{}\n'.format(self.red_team.top, self.red_team.mid, self.red_team.jg, self.red_team.adc, self.red_team.sup, self.blue_team.top, self.blue_team.mid, self.blue_team.jg, self.blue_team.adc, self.red_team.sup))
+
     def __str__(self):
-        return f'\nRed Team\nAverage MMR: {self.red_team.calculate_avg_mmr()}{self.red_team}\n\nBlue Team\nAverage MMR: {self.blue_team.calculate_avg_mmr()}{self.blue_team}'
+        return '\nRed Team\nAverage MMR: {}{}\n\nBlue Team\nAverage MMR: {}{}'.format(self.red_team.calculate_avg_mmr(), self.red_team, self.blue_team.calculate_avg_mmr(), self.blue_team)
 
 class Link:
     def __init__(self, value=None):
