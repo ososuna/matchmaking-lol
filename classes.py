@@ -231,7 +231,8 @@ class Match:
         self.__blue_team = blue_team
     
     def print_match_stats(self):
-        print('Red Team\n{}\n{}\n{}\n{}\n{}\nBlue Team\n{}\n{}\n{}\n{}\n{}\n'.format(self.red_team.top, self.red_team.mid, self.red_team.jg, self.red_team.adc, self.red_team.sup, self.blue_team.top, self.blue_team.mid, self.blue_team.jg, self.blue_team.adc, self.red_team.sup))
+        print('Red Team\n{}\n{}\n{}\n{}\n{}'.format(self.red_team.top, self.red_team.mid, self.red_team.jg, self.red_team.adc, self.red_team.sup))
+        print('\nBlue Team\n{}\n{}\n{}\n{}\n{}\n'.format(self.blue_team.top, self.blue_team.mid, self.blue_team.jg, self.blue_team.adc, self.blue_team.sup))
 
     def __str__(self):
         return '\nRed Team\nAverage MMR: {}{}\n\nBlue Team\nAverage MMR: {}{}'.format(self.red_team.calculate_avg_mmr(), self.red_team, self.blue_team.calculate_avg_mmr(), self.blue_team)
