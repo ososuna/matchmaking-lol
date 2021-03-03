@@ -2,6 +2,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import random
+from progress.bar import ChargingBar
+import time
 from classes import *
 
 p1 = Player('pinguinodelanasa', 150, 55, 'Bronze', 1, True, 'adc', 'jg')
@@ -25,6 +27,7 @@ plt.xlabel('MMR')
 plt.ylabel('Players number')
 plt.title('Rank distribution of players online')
 
+# %%
 def generate_rand_player():
 
     rand_mmr = round(np.random.choice(mmr), 2)
@@ -71,8 +74,32 @@ q1.form_team(t1)
 q1.form_team(t2)
 
 m1 = Match(1, t1, t2)
+
+def charge_bar(text):
+    bar = ChargingBar(text, max=100)
+    for num in range(100):
+        time.sleep(random.uniform(0, 0.05))
+        bar.next()
+    bar.finish()
+
+print('\n\tLeague of Legends Matchmaking System\n')
+charge_bar('Generating 10,000 random players')
+time.sleep(1.5)
+print('\nLooking for a match')
+time.sleep(.5)
+print('Estimated time: 00:{}\n'.format(random.randint(11,18)))
+
+for i in range(0, random.randint(11,18)):
+    if(i < 10):
+        print('00:0{}'.format(i))
+    else:
+        print('00:{}'.format(i))
+    time.sleep(1)
+
+time.sleep(.5)
+print('\nMatch founded!')
+charge_bar('Feeding the Baron Nashor')
+time.sleep(1)
+print()
 m1.print_match_stats()
 print(m1)
-
-
-# %%
