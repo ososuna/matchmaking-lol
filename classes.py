@@ -1,4 +1,6 @@
 
+import numpy as np
+
 class Player:
 
     def __init__(self, user, level, winrate, division, rank, autofill, primary_lane, secondary_lane):
@@ -141,6 +143,7 @@ class Team:
         self.__adc = None
         self.__sup = None
         self.__avg_mmr = None
+        self.__arr_team = np.array([0,0,0,0,0]) 
     
     @property
     def id(self): 
@@ -193,6 +196,10 @@ class Team:
     @avg_mmr.setter 
     def avg_mmr(self, avg_mmr):
         self.__avg_mmr = avg_mmr
+    
+    @property
+    def arr_team(self): 
+        return self.__arr_team
 
     def calculate_avg_mmr(self):
         if self.top and self.jg and self.mid and self.adc and self.sup:
@@ -200,6 +207,10 @@ class Team:
             self.avg_mmr = total_mmr / 5
             return self.avg_mmr
     
+    def create_arr_team(self):
+        if self.top and self.jg and self.mid and self.adc and self.sup:
+            self.arr_team([self.top, self.jg, self.mid, self.adc, self.sup])
+
     def __str__(self):
         return '\ntop: {}\njg: {}\nmid: {}\nadc: {}\nsup: {}'.format(self.top.user, self.jg.user, self.mid.user, self.adc.user, self.sup.user)
 
