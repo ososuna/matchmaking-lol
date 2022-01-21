@@ -1,2 +1,2 @@
 # matchmaking lol
- Repositorio del simulador de emparejamientos de partidas clasificatorias solo dúo de League of Legends. Realizado para la materia de Estructura de Datos en la Universidad Anáhuac Querétaro
+Matchmaking algorithm for solo queue rankeds in League of Legends
